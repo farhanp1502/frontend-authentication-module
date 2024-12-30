@@ -11,5 +11,7 @@
     "otpGenerationApiPathForResetPassword": "/elevate-user/v1/account/generateOtp",
     "supportEmail":"mentoredtest1@yopmail.com",
     "privacyPolicyUrl":"https://www.privacyploicy.com",
-    "termOfUseUrl":"https://www.termsofuse.com"
+    "termOfUseUrl":"https://www.termsofuse.com",
+    "intialPage": true,
+    "intialPagePath":"intro"
 }

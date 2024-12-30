@@ -73,7 +73,12 @@ export class AuthService {
               if (res?.responseCode === "OK") {
                 localStorage.clear();
                 this.sendMessage();
-                this.router.navigate(['/login']);
+                if(this.configData?.intialPage){
+                  this.router.navigateByUrl(this.configData?.intialPagePath);
+                }
+                else{
+                  this.router.navigate(['/login']);
+                }
               } else {
                 this.toastService.showToast(res?.message || `Logout unsuccessful`, 'error', 3000, 'top', 'end');
               }

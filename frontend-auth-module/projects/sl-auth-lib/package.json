@@ -1,7 +1,7 @@
 {
   "name": "authentication_frontend_library",
   "description": "Authentication Library for ELEVATE capabilities",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
