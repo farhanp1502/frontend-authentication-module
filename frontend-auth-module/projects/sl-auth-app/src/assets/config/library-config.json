@@ -12,6 +12,6 @@
     "supportEmail":"mentoredtest1@yopmail.com",
     "privacyPolicyUrl":"https://www.privacyploicy.com",
     "termOfUseUrl":"https://www.termsofuse.com",
-    "intialPage": true,
-    "intialPagePath":"intro"
+    "initialPage": true,
+    "initialPagePath":"intro"
 }

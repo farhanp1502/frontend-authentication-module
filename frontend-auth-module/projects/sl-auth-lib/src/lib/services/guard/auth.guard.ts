@@ -51,9 +51,9 @@ export class AuthGuard implements CanActivate {
         return true;
       }
 
-      if (authenticated && this.configData?.intialPagePath && !initialRedirectDone) {
+      if (authenticated && this.configData?.initialPagePath && !initialRedirectDone) {
         localStorage.setItem('initialRedirectDone', 'true'); // Persist flag across refreshes
-        return this.router.parseUrl(this.configData?.intialPagePath);
+        return this.router.parseUrl(this.configData?.initialPagePath);
       }
 
 
