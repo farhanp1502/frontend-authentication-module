@@ -7,11 +7,21 @@ import { OtpComponent } from './components/otp/otp.component';
 import { SingupResetPassComponent } from './components/singup-reset-pass/singup-reset-pass.component';
 
 const routes: Routes = [
+  {
+    path: 'mohini',
+    redirectTo: '', 
+    pathMatch: 'prefix' // Let Nginx or React handle the path
+  },
+  {
+    path: 'create-project',
+    redirectTo: '', 
+    pathMatch: 'prefix' // Let Nginx or React handle the path
+  },
   {path:'login', component: LoginComponent, canActivate:[AuthGuard] },
   {path:'signup', component: SingupResetPassComponent,data: { mode: 'signup' }, canActivate:[AuthGuard] },
   {path:'landing', component: LandingComponent, canActivate:[AuthGuard] },
   {path:'reset-password', component: SingupResetPassComponent,data: { mode: 'reset' } , canActivate:[AuthGuard] },
-  {path:'otp', component: OtpComponent, canActivate:[AuthGuard] }
+  {path:'otp', component: OtpComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({

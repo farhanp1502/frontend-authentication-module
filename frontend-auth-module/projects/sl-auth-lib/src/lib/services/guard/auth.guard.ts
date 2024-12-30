@@ -9,6 +9,8 @@ export class AuthGuard implements CanActivate {
 
   private readonly publicRoutes = ['/login', '/signup', '/landing', '/otp', '/reset-password'];
 
+  private readonly excludedRoutes = ['/mohini','/create-project']
+
   constructor(private router: Router) {}
 
   private isPublicRoute(url: string): boolean {
@@ -27,6 +29,10 @@ export class AuthGuard implements CanActivate {
     const url = state.url;
     const authenticated = this.isAuthenticated();
     const publicRoute = this.isPublicRoute(url);
+
+    if (this.excludedRoutes.includes(url)) {
+      return true;
+    }
 
     if (authenticated) {
       return publicRoute ? this.router.parseUrl('/home') : true;

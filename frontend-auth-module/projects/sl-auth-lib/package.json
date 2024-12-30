@@ -1,13 +1,13 @@
 {
   "name": "authentication_frontend_library",
-  "description": "In version 0.0.1 only login page with all the functionality is completed",
-  "version": "1.0.3",
+  "description": "Authentication Library for ELEVATE capabilities",
+  "version": "1.0.19",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
     "@angular/material": "~17.3.9",
-    "ng-otp-input": "^1.9.3",
-    "elevate-dynamic-form": "^0.0.10"
+    "elevate-dynamic-form": "^0.0.10",
+    "ng-otp-input": "^1.9.3"
   },
   "dependencies": {
     "tslib": "^2.3.0"
