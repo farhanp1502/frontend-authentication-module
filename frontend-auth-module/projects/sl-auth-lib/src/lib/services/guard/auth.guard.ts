@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, RouterStateSnapshot, UrlTree, ActivatedRouteSnapshot } from '@angular/router';
-import { catchError, Observable } from 'rxjs';
+import { catchError, EMPTY, Observable } from 'rxjs';
 import { EndpointService } from '../endpoint/endpoint.service';
 
 @Injectable({
@@ -23,13 +23,17 @@ export class AuthGuard implements CanActivate {
     return !!localStorage.getItem('name');
   }
 
-      async fetchConfigData() {
+  fetchConfigData(): Promise<void> {
+    return new Promise((resolve, reject) => {
       this.endPointService.getEndpoint().pipe(
         catchError((error) => {
-          throw error
+          reject(error);
+          return EMPTY;
         })
       ).subscribe(data => {
         this.configData = data;
+        resolve();
+      });
       });
     }
 
@@ -38,7 +42,12 @@ export class AuthGuard implements CanActivate {
       state: RouterStateSnapshot
     ): Promise<boolean | UrlTree> {
       if (!this.configData) {
+      try {
         await this.fetchConfigData();
+      } catch (error) {
+        console.error('Failed to fetch config data:', error);
+        return this.router.parseUrl('/error');
+      }
       }
 
       const url = state.url;
@@ -60,7 +69,11 @@ export class AuthGuard implements CanActivate {
       if (authenticated) {
         return publicRoute ? this.router.parseUrl('/home') : true;
       } else {
+      if (this.configData?.initialPagePath) {
+        return publicRoute ? true : this.router.parseUrl(this.configData?.initialPagePath);
+      } else {
         return publicRoute ? true : this.router.parseUrl('/landing');
       }
     }
+}
 }

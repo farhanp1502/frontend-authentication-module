@@ -148,7 +148,6 @@ form {
 
 .terms {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
   font-weight: 500;
@@ -157,7 +156,7 @@ form {
 .terms input[type="checkbox"] {
   width: 1rem;
   height: 1rem;
-  margin: 0 0.325rem 0 0.925rem;
+  margin: 0.2rem 0.325rem 0 0.925rem;
 }
 
 p a {
