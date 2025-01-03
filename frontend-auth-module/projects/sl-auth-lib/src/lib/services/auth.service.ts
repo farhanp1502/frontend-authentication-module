@@ -73,6 +73,10 @@ export class AuthService {
               if (res?.responseCode === "OK") {
                 localStorage.clear();
                 this.sendMessage();
+                if(this.configData?.initialPage){
+                  this.router.navigateByUrl(this.configData?.initialPagePath);
+                }
+                else{
                   this.router.navigate(['/login']);
                 }
               } else {
