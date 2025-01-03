@@ -74,6 +74,7 @@ export class AuthService {
                 localStorage.clear();
                 this.sendMessage();
                   this.router.navigate(['/login']);
+                }
               } else {
                 this.toastService.showToast(res?.message || `Logout unsuccessful`, 'error', 3000, 'top', 'end');
               }
