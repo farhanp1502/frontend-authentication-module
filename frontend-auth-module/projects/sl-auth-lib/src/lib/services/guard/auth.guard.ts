@@ -45,8 +45,7 @@ export class AuthGuard implements CanActivate {
       try {
         await this.fetchConfigData();
       } catch (error) {
-        console.error('Failed to fetch config data:', error);
-        return this.router.parseUrl('/error');
+        return this.router.parseUrl('/home');
       }
       }
 
